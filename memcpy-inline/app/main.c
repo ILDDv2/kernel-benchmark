@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	um_t um;
 
 	if (argc != 2) {
-		printf("Usage:\n main flag(=1, inline; =0, non-inline)\n");
+		printf("Usage:\n main {0, 1}(=1, inline; =0, non-inline)\n");
 		return -1;
 	}
 
