@@ -44,7 +44,7 @@ static int chr_open(struct inode *nd, struct file *filp)
 
 static ssize_t chr_read(struct file *filp, char __user *u, size_t sz, loff_t *off)
 {
-	unsigned long n, j0, j1, i;
+	unsigned long n = 0, j0, j1, i;
 	unsigned char v1 = 0xcd;
 	unsigned short v2 = 0xabef;
 	unsigned int v4 = 0xdeadbeef;
