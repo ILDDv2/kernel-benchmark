@@ -11,6 +11,8 @@
 typedef struct {
 	unsigned long a;
 	unsigned long b;
+	unsigned long c;
+	unsigned long d;
 } um_t;
 
 int main(int argc, char *argv[])
@@ -27,7 +29,9 @@ int main(int argc, char *argv[])
 	printf("flag = %d\n", flag);
 
 	um.a = 0xdeadbeefbeefdead;
-	um.b = 0x1234567887654321;	
+	um.b = 0xabcdabcdabcdabcd;
+	um.c = 0xcccccccccccccccc;
+	um.d = 0xdddddddddddddddd;	
 	int fd = open(CHR_DEV_NAME, O_RDONLY|O_NDELAY);
 	if(fd < 0) {
         	printf("open file %s failed!\n", CHR_DEV_NAME);
@@ -38,7 +42,9 @@ int main(int argc, char *argv[])
 		printf("ioctl failed\n");
 		return -1;
 	} 
+
 	ret = read(fd, &um , sizeof(um_t));
+	printf("ret = %d, um.a = 0x%lx, um.b = 0x%lx\n", ret, um.a, um.b);
 	if (ret < 0) {
 		printf("read file %s failed!\n", CHR_DEV_NAME);
 		return -1;
