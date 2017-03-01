@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <linux/ioctl.h>
+#include <sys/ioctl.h>
 
 #define CHRDEV  0xCD
 #define CHR_SET_FLAG    _IO(CHRDEV, 0x30)
